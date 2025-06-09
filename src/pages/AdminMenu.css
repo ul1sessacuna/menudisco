@@ -1,0 +1,73 @@
+
+.admin-container {
+  padding: 2rem;
+  background-color: #111;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #ff0000;
+}
+
+.add-form input,
+.drink-item input {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+}
+
+.add-form button,
+.drink-item button {
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-form button {
+  background-color: #ff0000;
+  color: #fff;
+}
+
+.drink-list {
+  margin-top: 2rem;
+}
+
+.drink-item {
+  background-color: #222;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #ff000040;
+}
+
+.drink-item h3 {
+  margin: 0;
+  color: #ff4d4d;
+}
+
+.drink-item p {
+  margin: 0.2rem 0;
+}
+
+.drink-item button {
+  background-color: #333;
+  color: white;
+}
+
+.drink-item button:hover {
+  background-color: #ff4d4d;
+}
+
+.delete {
+  background-color: #990000;
+}
+
+.delete:hover {
+  background-color: #ff0000;
+}
