@@ -5,12 +5,14 @@ import './PublicMenu.css'
 
 function PublicMenu() {
     const [tragos, setTragos] = useState([])
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         const fetchTragos = async () => {
             const querySnapshot = await getDocs(collection(db, 'tragos'))
             const data = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
             setTragos(data)
+            setLoading(false)
         }
         fetchTragos()
     }, [])
@@ -31,15 +33,28 @@ function PublicMenu() {
 
                 <hr className="divider" />
 
-                <div className="trago-list">
-                    {tragos.map((trago) => (
-                        <div className="trago-item" key={trago.id}>
-                            <span className="nombre">{trago.nombre}</span>
-                            <span className="puntos"></span>
-                            <span className="precio">${trago.precio}</span>
-                        </div>
-                    ))}
-                </div>
+                {loading ? (
+                    <div className="trago-list">
+                        {[...Array(5)].map((_, i) => (
+                            <div className="trago-item placeholder" key={i}>
+                                <span className="nombre placeholder-box"></span>
+                                <span className="puntos"></span>
+                                <span className="precio placeholder-box"></span>
+                            </div>
+                        ))}
+                    </div>
+                ) : (
+                    <div className="trago-list">
+                        {tragos.map((trago) => (
+                            <div className="trago-item" key={trago.id}>
+                                <span className="nombre">{trago.nombre}</span>
+                                <span className="puntos"></span>
+                                <span className="precio">${trago.precio}</span>
+                            </div>
+                        ))}
+                    </div>
+                )}
+
             </div>
         </div>
     )
